@@ -14,9 +14,9 @@ RF24 radio(7,8);                    // nRF24L01(+) radio attached using Getting 
 
 RF24Network network(radio);          // Network uses that radio
 
-const uint16_t this_node = 01;        // Address of our node in Octal format
-const uint16_t other_node = 00;       // Address of the other node in Octal format
-const uint16_t other_node2=02;
+const uint16_t this_node = 01;        // BASE STATION
+const uint16_t other_node = 00;       // NODE 1
+const uint16_t other_node2=02;        //NODE 2
 
 const unsigned long interval = 2000; //ms  // How often to send 'hello world to the other unit
 
@@ -26,8 +26,8 @@ unsigned long packets_sent;          // How many have we sent already
 unsigned char mode;
 
 char transmit_data_mode1[50]="PARKING IS FULL";
-char transmit_data_mode2[50]="";
-char trasnmit_data_mode3[50]="";
+char transmit_data_mode2[50]="SILENT ZONE";
+char trasnmit_data_mode3[50]="TURN LEFT";
 void setup(void)
 {
   Serial.begin(9600);
