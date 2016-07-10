@@ -76,7 +76,6 @@ switch(mode)
          while(1)
          { 
           network.update();                  // Check the network regularly
-          lcd.clear();
           lcd.setCursor(0,0);
           
           if ( network.available() )
@@ -116,7 +115,7 @@ switch(mode)
          while(1)
          { 
           network.update();                  // Check the network regularly
-          lcd.clear();
+          
           lcd.setCursor(0,0);
           
           if ( network.available() )
@@ -166,7 +165,7 @@ switch(mode)
          while(1)
          { 
           network.update();                  // Check the network regularly
-          lcd.clear();
+          
           lcd.setCursor(0,0);
           
           if ( network.available() )
@@ -185,8 +184,11 @@ switch(mode)
                       lcd.setCursor(0,1);
                       lcd.print("Delayed         ");
                       delay(5000);
+                      flag=1;
                     }
-                    flag=~flag;
+                    else if(flag==1)
+                    flag=0;
+                    
                     
                             network.write(header1,receive_data,sizeof(receive_data));
                             Serial.print("DATA SENT : ");

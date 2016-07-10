@@ -141,6 +141,34 @@ void loop()
               Serial.println("MODE3");
               lcd.print("MODE3");
               delay(1000);
+
+                lcd.clear();
+                lcd.setCursor(0,0);
+                network.update();                          // Check the network regularly
+                lcd.print("BASE STATION");
+                Serial.println("BASE STATION");
+                Serial.print("COMMAND SENT BY BASE STATION : ");
+
+                RF24NetworkHeader header(/*to node*/ other_node);
+  
+                bool ok = network.write(header,trasnmit_data_mode3,sizeof(trasnmit_data_mode3));
+                if (ok)
+                {
+                    lcd.setCursor(12,0);
+                    lcd.print("sent");
+                    lcd.setCursor(0,1);
+                    lcd.print(trasnmit_data_mode3);
+                    Serial.println(trasnmit_data_mode3);
+                }    
+                else
+                {
+                    lcd.setCursor(12,0);
+                    lcd.print("failed");
+                    Serial.println("failed.");
+                }
+                delay(2000);      
+                Serial.print('\n'); 
+
             }
             break;
 
