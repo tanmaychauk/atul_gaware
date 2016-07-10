@@ -36,6 +36,9 @@ void setup(void)
   radio.begin();
   network.begin(/*channel*/ 90, /*node address*/ this_node);
 
+  pinMode(mode1,INPUT);
+  pinMode(mode2,INPUT);
+  pinMode(mode3,INPUT);
 }
 
 void loop() 
