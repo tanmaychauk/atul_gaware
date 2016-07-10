@@ -13,8 +13,8 @@ RF24 radio(7,8);                // nRF24L01(+) radio attached using Getting Star
 
 RF24Network network(radio);      // Network uses that radio
 
-const uint16_t this_node = 00;        // BASE STATION
-const uint16_t other_node = 01;       // NODE 1
+const uint16_t this_node = 00;        // NODE 1
+const uint16_t other_node = 01;       // BASE STATION
 const uint16_t other_node2=02;        //NODE 2
 
 const uint16_t other_node1 = 02; 
@@ -88,7 +88,7 @@ switch(mode)
                     Serial.println(receive_data);
                     lcd.print(receive_data);
                     
-                    RF24NetworkHeader header1(other_node1);        // If so, grab it and print it out
+                    RF24NetworkHeader header1(other_node2);        // If so, grab it and print it out
 
                     if(strcmp(receive_data,"PARKING IS FULL")==0)
                         {
@@ -128,7 +128,7 @@ switch(mode)
                     Serial.println(receive_data);
                     lcd.print(receive_data);
                     
-                    RF24NetworkHeader header1(other_node1);        // If so, grab it and print it out
+                    RF24NetworkHeader header1(other_node2);        // If so, grab it and print it out
                     
                     char data_send[18];
 
@@ -178,7 +178,7 @@ switch(mode)
                     Serial.println(receive_data);
                     lcd.print(receive_data);
                     
-                    RF24NetworkHeader header1(other_node1);        // If so, grab it and print it out
+                    RF24NetworkHeader header1(other_node2);        // If so, grab it and print it out
                     
                     if(flag==0)
                     {
