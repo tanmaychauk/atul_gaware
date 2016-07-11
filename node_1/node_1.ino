@@ -146,6 +146,7 @@ switch(mode)
                       strcpy(data_send,e);  
 
                       i++;
+                            lcd.print("                ");
                             network.write(header1,data_send,sizeof(data_send));
                             Serial.print("DATA SENT : ");
                             Serial.println(data_send);
