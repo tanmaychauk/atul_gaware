@@ -24,7 +24,7 @@ unsigned char mode;
 
 char a[18]="NO PARKING";
 char b[18]="NO HORN";
-char c[18]="TURN RIGHT";
+char c[18]="KEEP RIGHT";
 char d[18]="NO ENTRY";
 char e[18]="KEEP LEFT";
 unsigned int i;

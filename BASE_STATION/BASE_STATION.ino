@@ -2,11 +2,11 @@
 #include <RF24Network.h>
 #include <RF24.h>
 #include <SPI.h>
-#include<LiquidCrystal.h>
+#include<LiquidCrystal.h>       //lcd library include
 
 
-LiquidCrystal lcd(A5, A4, A3, A2, A1, A0);
-int mode1=3;
+LiquidCrystal lcd(A5, A4, A3, A2, A1, A0);      //initialise
+int mode1=3;            //pin config for mode selection
 int mode2=4;
 int mode3=5;
 
@@ -28,12 +28,13 @@ unsigned char mode;
 char transmit_data_mode1[50]="PARKING IS FULL";
 char transmit_data_mode2[50]="SILENT ZONE";
 char trasnmit_data_mode3[50]="TURN LEFT";
+
 void setup(void)
 {
-  Serial.begin(9600);
-  lcd.begin(16,2);
-   SPI.begin();
-  radio.begin();
+  Serial.begin(9600);     // serial intialise
+  lcd.begin(16,2);        //lcd initialise
+   SPI.begin();           //spi start
+  radio.begin();      
   network.begin(/*channel*/ 90, /*node address*/ this_node);
 
   pinMode(mode1,INPUT);
@@ -63,12 +64,13 @@ void loop()
   {
     lcd.clear();
     case 1:
-            while(1)
-            {
               Serial.println("MODE1");
               lcd.print("MODE1");
               delay(1000);
 
+            while(1)
+            {
+              
                 lcd.clear();
                 lcd.setCursor(0,0);
                 network.update();                          // Check the network regularly
@@ -100,11 +102,12 @@ void loop()
             break;
 
     case 2:
-            while(1)
-            {
               Serial.println("MODE2");
               lcd.print("MODE2");
               delay(1000);
+            while(1)
+            {
+             
                 lcd.clear();
                 lcd.setCursor(0,0);
                 network.update();                          // Check the network regularly
@@ -136,12 +139,13 @@ void loop()
             break;
 
      case 3:
-            while(1)
-            {
               Serial.println("MODE3");
               lcd.print("MODE3");
               delay(1000);
 
+            while(1)
+            {
+  
                 lcd.clear();
                 lcd.setCursor(0,0);
                 network.update();                          // Check the network regularly
